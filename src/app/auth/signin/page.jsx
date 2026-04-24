@@ -67,11 +67,11 @@ const SigninPage = () => {
                     <FieldError />
                 </TextField>
 
-                <TextField className="w-full max-w-70" name="password">
+                <TextField className="" name="password">
                     <Label>Password</Label>
                     <InputGroup>
                         <InputGroup.Input
-                            className="w-full max-w-70"
+                            className=""
                             type={isVisible ? "text" : "password"}
                             name= "password"
                             placeholder="Enter your password"

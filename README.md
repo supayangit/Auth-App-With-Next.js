@@ -1,36 +1,147 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔐 Next.js Authentication App
 
-## Getting Started
+A modern authentication system built with **Next.js**, featuring secure user signup and login using **Better Auth** and **MongoDB**. The project demonstrates protected routes, session handling, and conditional navigation based on authentication state.
 
-First, run the development server:
+---
+
+## 🚀 Tech Stack
+
+* **Next.js (App Router)**
+* **JavaScript**
+* **Tailwind CSS**
+* **HeroUI**
+* **Better Auth**
+* **MongoDB Atlas**
+
+---
+
+## ✨ Features
+
+* User **Sign Up** with name, email, and password
+* User **Sign In** with session handling
+* Secure authentication using Better Auth
+* MongoDB database integration
+* Protected routes (e.g. dashboard)
+* Automatic redirects based on authentication state
+* Conditional UI rendering (navbar, pages, etc.)
+* Full-page reload after login to ensure fresh session state
+
+---
+
+## 🔒 Route Protection
+
+* Certain routes (e.g. `/dashboard`) are **restricted**
+* If a user is **not logged in**, they are:
+
+  * Redirected to the **sign-in page**
+* Authenticated users can:
+
+  * Access protected pages
+  * Navigate freely across the app
+
+---
+
+## 🔄 Authentication Flow
+
+### Sign Up
+
+1. User submits name, email, and password
+2. Account is created in MongoDB
+3. User can proceed to sign in
+
+### Sign In
+
+1. User submits credentials
+2. Better Auth validates and creates session
+3. User is redirected to home/dashboard
+4. Session persists across navigation
+
+---
+
+## 📁 Project Structure (Simplified)
+
+```
+src/
+│
+├── app/
+│   ├── api/auth/[...all]/route.js   # Better Auth API handler
+│   ├── auth/
+│   │   ├── signin/page.jsx
+│   │   └── signup/page.jsx
+│   ├── dashboard/page.jsx          # Protected route
+│   └── page.jsx                    # Home page
+│
+├── lib/
+│   ├── auth.js                     # Better Auth server config
+│   └── auth-client.js              # Client-side auth instance
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file:
+
+```
+BETTER_AUTH_MONGODB_URI=your_mongodb_connection_string
+BETTER_AUTH_SECRET=your_secret_key
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+---
+
+## 🛠️ Installation
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Run the App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧠 Key Concepts Used
 
-To learn more about Next.js, take a look at the following resources:
+* Client vs Server components in Next.js
+* API route handling with Better Auth
+* MongoDB connection and adapter usage
+* Form handling and validation
+* Authentication state management
+* Conditional rendering and redirects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📌 Notes
 
-## Deploy on Vercel
+* Authentication state is handled via Better Auth sessions
+* Redirects are manually controlled for reliability in client components
+* MongoDB Atlas is used as the cloud database
+* UI built with HeroUI + Tailwind for clean design
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📈 Future Improvements
+
+* Add OAuth (Google, GitHub login)
+* Email verification
+* Password reset flow
+* Role-based access control
+* Improved dashboard functionality
+
+---
+
+## 📄 License
+
+This project is for learning and development purposes. Created and tested by Supayan Chakma!! ;)
